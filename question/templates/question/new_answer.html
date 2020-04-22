@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+
+
+<div class="up">
+  <div class="btn-group" role="group" aria-label="Basic example">
+    <div class="btn btn-secondary">Форма ответа</div>
+  </div>
+</div>
+
+            <form>
+                <h5>{{question.author}} спросил: {{question.question}} </h5>
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Ваш Ответ </label>
+            <input type="answer" class="form-control" id="exampleFormControlTextarea1" placeholder="Уважение автору!">
+        </div>
+
+            </form>
+
+            <form action="" method="POST" enctype="">
+                    {% for pole in form %}
+                    <div>
+                    {{ pole.label_tag }}
+                    <p>{{ pole }}</p>
+                    </div>
+                    <br />
+                    {% endfor %}
+                    {% csrf_token %}
+                    <input type="submit" value="Submit">
+             </form>
+
+{% endblock %}

@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+
+
+
+<main role="main">
+
+    <div class="jumbotronMy urists2">
+
+
+    <div class="container marketing">
+
+        {% if ok %}
+                <button type="button" class="btn btn-outline-info">Мы свяжемся с Вами в ближайшее время!</button><p></p>
+        {% endif %}
+
+
+        <hr class="featurette-divider">
+        <div class="card mb-3">
+          <img src="{% static "public/courtlong_flip.jpg" %}" class="card-spoiler-kk">
+          <div class="card-body">
+            <h3 class="card-title">Услуги для физических лиц:</h3>
+              <p></p>
+              <h6 class="card-title">- консультации, помощь в составлении документов по гражданско-правовым, трудовым, семейным спорам, а также по защите прав потребителей</h6>
+              <p></p><h6 class="card-title">- консультации по вопросам налога на имущество, помощь в получении налоговых вычетов</h6>
+              <p></p><h6 class="card-title">- признание права собственности на квартиру по решению суда, взыскание неустойки с застройщика, сопровождение сделок с недвижимостью</h6>
+              <p></p><h6 class="card-title">- защита прав моряков</h6>
+          </div>
+        </div>
+
+
+            <hr class="featurette-divider">
+
+                <div class="card mb-3">
+          <img src="{% static "public/courtlong.jpg" %}" class="card-spoiler-kk">
+          <div class="card-body">
+            <h3 class="card-title">Услуги для юридических лиц:</h3>
+              <p></p><h6 class="card-title">- организация переговорного процесса</h6>
+              <p></p><h6 class="card-title">- структурирование, сопровождение заключения и исполнения сделок (поставка, подряд)</h6>
+              <p></p><h6 class="card-title">- корпоративное право</h6>
+              <p></p><h6 class="card-title">- представительство в Арбитражном суде</h6>
+              <p></p><h6 class="card-title">- антикоррупционный и санкционный комплаенс</h6>
+              <p></p><h6 class="card-title">- сопровождение арендных отношений</h6>
+              <p></p><h6 class="card-title">- консультирование компаний по вопросам зарубежного законодательства и международного коммерческого арбитража</h6>
+          </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <!-- /END THE FEATURETTES -->
+ <div id="accordion" role="tablist" aria-multiselectable="true">
+
+
+    </div><!-- /.container -->
+
+    </div> <!-- jumbotron -->
+
+
+<footer class="container">
+        <div class="jumbotronMy2" style="color: black">
+            <form action="{{ request.path }}" method="post">
+                {% csrf_token %}
+                <label>Форма обратной связи</label>
+                <p></p>
+                <div class="form-group">
+                    <label>Ваш Email</label>
+                    {{ Mform.email }}
+<!--                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">-->
+                </div>
+                <div class="form-group">
+                    <label>Ваш Номер (не обязательно)</label>
+                    {{ Mform.number }}
+<!--                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="+79991234567">-->
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Какие услуги Вас интересуют?</label>
+                    <select class="form-control" id="exampleFormControlSelect1">
+                        <option>Для физических лиц</option>
+                        <option>Для юридических лиц</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Кратко опишите проблему</label>
+                    {{ Mform.problem }}
+<!--                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>-->
+                </div>
+                <button type="submit" class="btn btn-coffee">Оставить заявку</button>
+            </form>
+
+        </div>
+        <p class="float-right" style="color: black">ИП Коломиец Ю.С. ОГРНИП: 320911200017136, ИНН: 911113069567</a></p>
+        <p style="color: black">&copy; 2020 K Company </p></footer>
+    </div>
+</main>
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="/docs/4.4/assets/js/vendor/jquery.slim.min.js"><\/script>')</script>
+<script src="/docs/4.4/dist/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous">
+
+    {% endblock %}

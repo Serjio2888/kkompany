@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+
+<main role="main">
+
+
+
+    <!-- Marketing messaging and featurettes
+    ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+    <div class="jumbotronMy urists2">
+
+    <div class="container marketing">
+
+
+        <!-- /END THE FEATURETTES -->
+        <p></p>
+        <h1 class="display-6" style="text-align: center">Отзывы о работе K Company</h1>
+        <p></p>
+
+        {% if comm %}
+                <button type="button" class="btn btn-outline-info">Спасибо! Нам важно Ваше мнение. Отзыв будет опубликован после проверки модератором</button><p></p>
+        {% endif %}
+        {% if ok %}
+                <button type="button" class="btn btn-outline-info">Мы свяжемся с Вами в ближайшее время!</button><p></p>
+        {% endif %}
+
+
+        <main role="main">
+            {% for rew in rewiews %}
+            {% if rew.seen %}
+            <div class="card">
+                  <div class="card-header">
+                    {{ rew.author_nick }}
+                  </div>
+                  <div class="card-body">
+                    <blockquote class="blockquote mb-0">
+                      <p>{{ rew.text }}</p>
+                      <footer class="blockquote-footer"><cite title="Source Title">{{ rew.creation_date }}</cite></footer>
+                    </blockquote>
+                  </div>
+            </div><p></p>
+            {% endif %}
+            {% endfor %}<p></p>
+
+        <hr class="featurette-divider">
+
+        <div class="jumbotronMy2" style="color: black">
+            <form action="{{ request.path }}" method="post">
+                {% csrf_token %}
+                <label for="exampleFormControlInput1">Вы можете оставить свой отзыв:</label>
+                <p></p>
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Ваше Имя</label>
+<!--                    <input type="name" class="form-control" id="exampleFormControlInput1" value="{{form.author_nick}}" placeholder="Иван">-->
+                    {{ Rform.author_nick }}
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Отзыв</label>
+<!--                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" value="{{form.author_nick.text}}"></textarea>-->
+                {{ Rform.text }}
+                </div>
+                <button type="submit" class="btn btn-coffee">Отправить</button>
+            </form>
+
+        </div>
+
+            <hr class="featurette-divider">
+
+
+<footer class="container">
+        <div class="jumbotronMy2" style="color: black">
+            <form action="{{ request.path }}" method="post">
+                {% csrf_token %}
+                <label>Форма обратной связи</label>
+                <p></p>
+                <div class="form-group">
+                    <label>Ваш Email</label>
+                    {{ Mform.email }}
+<!--                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">-->
+                </div>
+                <div class="form-group">
+                    <label>Ваш Номер (не обязательно)</label>
+                    {{ Mform.number }}
+<!--                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="+79991234567">-->
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Какие услуги Вас интересуют?</label>
+                    <select class="form-control" id="exampleFormControlSelect1">
+                        <option>Для физических лиц</option>
+                        <option>Для юридических лиц</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Кратко опишите проблему</label>
+                    {{ Mform.problem }}
+<!--                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>-->
+                </div>
+                <button type="submit" class="btn btn-coffee">Оставить заявку</button>
+            </form>
+
+        </div>
+        <p class="float-right" style="color: black">ИП Коломиец Ю.С. ОГРНИП: 320911200017136, ИНН: 911113069567</a></p>
+        <p style="color: black">&copy; 2020 K Company </p></footer>
+        </main>
+
+
+    </div><!-- /.container -->
+
+    </div> <!-- jumbotron -->
+
+
+
+</main>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="/docs/4.4/assets/js/vendor/jquery.slim.min.js"><\/script>')</script>
+<script src="/docs/4.4/dist/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous">
+
+    {% endblock %}

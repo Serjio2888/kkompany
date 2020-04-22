@@ -1,0 +1,188 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+
+<div class="b">
+    <div id="myCarousel" class="carousel slide jumbotronCoffee" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+            <li data-target="#myCarousel" data-slide-to="3"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="jumbotronDown jumbotron-fluid">
+                    <div class="container">
+                        <h1 class="display-6">K Company</h1>
+                        <p class="lead">Оказываем широкий спектр юридических услуг.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="jumbotronDown jumbotron-fluid">
+                    <div class="container">
+                        <h1 class="display-6">K Company</h1>
+                        <p class="lead">Понимаем, что клиента интересует решение проблемы, а не просто процесс.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="jumbotronDown jumbotron-fluid">
+                    <div class="container">
+                        <h1 class="display-6">K Company</h1>
+                        <p class="lead">Всегда на связи с Вами, информируем об изменениях в ситуации.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="jumbotronDown jumbotron-fluid">
+                    <div class="container">
+                        <h1 class="display-6">K Company</h1>
+                        <p class="lead">Гарантируем полную конфиденциальность.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</div>
+
+
+
+    <!-- Marketing messaging and featurettes
+    ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+    <div class="jumbotronMy urists2">
+
+
+
+
+    <div class="container marketing">
+                {% if ok %}
+                <button type="button" class="btn btn-outline-info">Мы свяжемся с Вами в ближайшее время!</button><p></p>
+        {% endif %}
+            <p></p>
+                <div class="row featurette">
+            <div class="col-md-5">
+
+                <img class="d-block w-100 rounded" src="{% static "public/jury_flip.jpg" %}" alt="First slide">
+            </div>
+            <div class="col-md-7 centered-texto ">
+                <h2 class="featurette-heading">О Компании</h2>
+                <p class="lead intervallo">Специалисты юридической компании «K COMPANY» в режиме реального времени отслеживают все изменения действующего законодательства и обладают необходимым опытом представительства интересов клиентов как в судах общей юрисдикции, так и в арбитражных судах, где оказывают весь спектр квалифицированной юридической помощи. </p>
+            </div>
+
+
+        </div>
+        <hr class="featurette-divider">
+
+
+        <div class="row featurette">
+                        <div class="col-md-7 centered-texto">
+                <h2 class="featurette-heading">Сотрудничество с нами это:</h2>
+                <p class="lead intervallo">
+            <p class="lead intervallo">- изобретательный подход к решению Вашей проблемы на взаимовыгодных условиях;</p>
+            <p class="lead intervallo">- полное юридическое сопровождение и анализ рисков профессионалами;</p>
+            <p class="lead intervallo">- гарантия конфиденциальности;</p>
+            <p class="lead intervallo">- результат.</p>
+                </p>
+            </div>
+
+            <div class="col-md-5">
+
+             <img class="d-block w-100 rounded" src="{% static "public/jury.jpg" %}" alt="First slide">
+            </div>
+            </div>
+        <hr class="featurette-divider">
+
+                <div class="row featurette">
+                        <div class="col-md-8 centered-texto">
+                <h2 class="featurette-heading">Уникальное предложение:</h2>
+
+            <p class="lead intervallo">Консультации и представительство интересов могут проходить как на территории Республики Крым, так и в Москве, Московской области - быстро, эффективно и, главное, непосредственно нашими специалистами.</p>
+
+            </div>
+
+            </div>
+                <hr class="featurette-divider">
+
+                <div class="row featurette">
+                        <div class="col-md-8 centered-texto">
+                <h2 class="featurette-heading">Наши контакты:</h2>
+
+                            <p class="lead intervallo">Тел.: +7(978)024-78-06; +7(977)565-78-41</p>
+                                       <p class="lead intervallo"> e-mail: kolomiecan@mail.ru</p>
+
+            </div>
+
+            </div>
+        <hr class="featurette-divider">
+
+        <h5 class="intervallo centroid">Индивидуальный подход - механизм решения проблемы ©</h5>
+        </div>
+    <p></p>
+
+
+        <p></p>
+
+
+        <!-- /END THE FEATURETTES -->
+<div id="accordion" role="tablist" aria-multiselectable="true">
+
+<footer class="container">
+        <div class="jumbotronMy2" style="color: black">
+            <form action="{{ request.path }}" method="post">
+                {% csrf_token %}
+                <label>Форма обратной связи</label>
+                <p></p>
+                <div class="form-group">
+                    <label>Ваш Email</label>
+                    {{ Mform.email }}
+<!--                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">-->
+                </div>
+                <div class="form-group">
+                    <label>Ваш Номер (не обязательно)</label>
+                    {{ Mform.number }}
+<!--                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="+79991234567">-->
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Какие услуги Вас интересуют?</label>
+                    <select class="form-control" id="exampleFormControlSelect1">
+                        <option>Для физических лиц</option>
+                        <option>Для юридических лиц</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Кратко опишите проблему</label>
+                    {{ Mform.problem }}
+<!--                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>-->
+                </div>
+                <button type="submit" class="btn btn-coffee">Оставить заявку</button>
+            </form>
+
+        </div>
+        <p class="float-right" style="color: black">ИП Коломиец Ю.С. ОГРНИП: 320911200017136, ИНН: 911113069567</a></p>
+        <p style="color: black">&copy; 2020 K Company </p></footer>
+
+
+
+    </div><!-- /.container -->
+
+    </div> <!-- jumbotron -->
+
+</main>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="/docs/4.4/assets/js/vendor/jquery.slim.min.js"><\/script>')</script>
+<script src="/docs/4.4/dist/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous">
+
+
+{% endblock %}
+
